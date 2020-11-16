@@ -21,6 +21,7 @@
     "electron": "^10.1.5"
   },
   "dependencies": {
+    "electron-log": "^4.3.0",
     "electron-squirrel-startup": "^1.0.0",
     "update-electron-app": "^2.0.1"
   },
