@@ -9,8 +9,8 @@ require('update-electron-app')({
 
 function createWindow () {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1920,
+    height: 1080,
     webPreferences: {
       nodeIntegration: true
     }
@@ -19,15 +19,9 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-function showNotification () {
-  const notification = {
-    title: 'Basic Notification',
-    body: 'Notification from the Main process'
-  }
-  new Notification(notification).show()
-}
-
-app.whenReady().then(createWindow).then(showNotification)
+app.on('ready', () => {
+  createWindow()
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -40,3 +34,9 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+const MainMenuTemplate = [
+  {
+    label:'File'
+  }
+]
